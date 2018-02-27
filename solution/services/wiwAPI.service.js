@@ -1,5 +1,4 @@
 wiwApp.service('wiwAPI', ['$http', 'positionInfo', function ($http, positionInfo) {
-    console.log('wiwAPI');
     var self = this;
     var urlBase = 'https://api.wheniwork.com/2/';
 

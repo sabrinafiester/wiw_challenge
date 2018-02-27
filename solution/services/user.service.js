@@ -56,6 +56,7 @@ wiwApp.service('User', ['wiwAPI', '$cookies', '$http', '$location', function (wi
         )
     };
     self.getUserPositions = function (userPositions) {
+        self.userPosList = [];
         userPositions.forEach(function (id) {
             self.userPosList.push(wiwAPI.getPosition(id));
         });
@@ -94,9 +95,7 @@ wiwApp.service('User', ['wiwAPI', '$cookies', '$http', '$location', function (wi
     self.getAllUsers = function () {
         wiwAPI.getUsers(self.wiwToken).then(
             function successCallback(response) {
-                console.log(response.data);
                 self.userList = response.data.users;
-                console.log(self.userList[0]);
             }, function errorCallback() {
                 swal({
                     type: 'error',
