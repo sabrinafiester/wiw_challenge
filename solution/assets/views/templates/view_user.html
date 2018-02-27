@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-1">
+            <h3 class="view-page-title">User Information</h3>
+        </div>
+
+        <div class="col-sm-3 col-lg-2 text-right">
+            <button class="btn btn_clear" ng-click=uc.editUser(uc.userObject.account_id) ng-if="uc.user.viewOnly">
+                <i class="fas fa-edit fa-lg" style="color:#4c4d4f;"></i>
+            </button>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-lg-10 offset-lg-1">
+            <form ng-submit="uc.updateUser()">
+                <fieldset ng-disabled="uc.user.viewOnly">
+                    <div class="form-group row">
+                        <label for="firstName" class="col-sm-2 col-form-label">First Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="firstName" ng-model="uc.userObject.first_name" class="form-control"
+                                   placeholder="First Name"
+                                   aria-label="firstName" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="lastName" class="col-sm-2 col-form-label">Last Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="lastName" ng-model="uc.userObject.last_name" class="form-control"
+                                   placeholder="Last Name"
+                                   aria-label="lastName" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                        <div class="col-sm-10">
+                            <input type="email" id="email" ng-model="uc.userObject.email" class="form-control"
+                                   placeholder="E-mail"
+                                   aria-label="email" aria-describedby="basic-addon1" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-2 col-form-label">Phone Number:</label>
+                        <div class="col-sm-10">
+                            <input type="tel" id="phone" ng-model="uc.userObject.phone_number" class="form-control"
+                                   placeholder="Phone Number"
+                                   aria-label="phonenumber" aria-describedby="basic-addon1" pattern="\+1[0-9]{10}"
+                                   required>
+                            <small ng-if="!uc.user.viewOnly" class="form-text text-muted">Format: +17635551234</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="phone" class="col-sm-2 col-form-label">Positions:</label>
+                        <div class="col-sm-10">
+                            <div class="table-responsive">
+                                <table class="table horiz-only">
+                                    <tbody>
+                                    <tr ng-repeat="wiw_position in uc.user.userPosList" class="position-tr"
+                                        ng-style="{'background-color': uc.hexToRgba(wiw_position.color)}">
+                                        <td>{{ wiw_position.name }}</td>
+                                        <td class="text-right">
+                                            <button ng-if="!uc.user.viewOnly" type="button"
+                                                    ng-click=uc.deleteUserPosition(pos.id) class="btn btn-link btn-sm">
+                                                <i class="fas fa-times-circle fa-lg" style="color:#4c4d4f;"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr ng-if="!uc.user.viewOnly">
+                                        <td class="pb-0">
+                                            Add position
+                                        </td>
+                                        <td class="text-right py-2">
+                                            <button class="btn btn_clear" data-toggle="modal" data-target="#addPos">
+                                                <i class="fas fa-plus fa-lg" style="color:#4c4d4f;"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right ml-auto">
+
+                        <button ng-model="button" type="button" ng-if="!uc.user.viewOnly"
+                                ng-click="uc.user.viewOnly=true" class="btn btn-danger">Cancel
+                        </button>
+                        <button type="submit" ng-if="!uc.user.viewOnly" class="btn btn-success">Submit</button>
+
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addPos" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header pb-1 no-border-modal">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Available Positions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-0">
+                    <div class="panel panel-default">
+                        <div class="panel-body pt-0">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <tbody ng-repeat="wiw_position in uc.user.positionList">
+                                    <tr class="position-tr" ng-if="uc.user.newPos(wiw_position.id)">
+                                        <td>{{ wiw_position.id }}</td>
+                                        <td>{{ wiw_position.name }}</td>
+                                        <td class="text-right">
+                                            <button type="button" ng-click=uc.addUserPosition(wiw_position.id)
+                                                    data-dismiss="modal" class="btn btn-link btn-sm">
+                                                <i class="fas fa-plus fa-lg" style="color:#4c4d4f;"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

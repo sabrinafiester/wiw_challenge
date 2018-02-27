@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META DATA -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>When I Work</title>
+    <!-- ICONS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="shortcut icon" href="assets/media/images/favicon/wiw.png"/>
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen, projection" href="assets/styles/custom.css"/>
+    <!-- Sweet Alert -->
+    <script src="https://unpkg.com/sweetalert2@7.12.4/dist/sweetalert2.all.js"></script>
+    <!-- AngularJS and Modules -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-cookies.js"></script>
+
+    <!-- Client, Contollers, & Services  -->
+    <script type="text/javascript" src="client.js"></script>
+    <script type="text/javascript" src="controllers/index.controller.js"></script>
+    <script type="text/javascript" src="controllers/user.controller.js"></script>
+    <script type="text/javascript" src="controllers/login.controller.js"></script>
+    <script type="text/javascript" src="controllers/position.controller.js"></script>
+    <script type="text/javascript" src="services/wiwAPI.service.js"></script>
+    <script type="text/javascript" src="services/user.service.js"></script>
+    <script type="text/javascript" src="services/login.service.js"></script>
+    <script type="text/javascript" src="services/position.service.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+
+</head>
+
+<body ng-app="wiwApp">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<header ng-include="'assets/views/partials/header.html'"></header>
+<div class="container">
+
+    <main ng-view></main>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>

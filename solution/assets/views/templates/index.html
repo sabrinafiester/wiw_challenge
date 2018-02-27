@@ -1,0 +1,81 @@
+<div class="wrapper">
+    <div class="content" role="main">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Users</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table horiz-only">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody ng-repeat="wiw_user in ic.user.userList">
+                                <tr class="users-tr">
+                                    <td class="pb-0">{{ wiw_user.login_id }}</td>
+                                    <td class="pb-0">{{ wiw_user.first_name }}</td>
+                                    <td class="pb-0">{{ wiw_user.last_name }}</td>
+                                    <td class="text-right py-2">
+                                        <button type="button" ng-click=ic.editUser(wiw_user.id)
+                                                class="btn btn-link btn-sm">
+                                            <i class="fas fa-edit fa-lg" style="color:#4c4d4f;"></i>
+                                        </button>
+                                        <button ng-click=ic.viewUser(wiw_user.id) type="button"
+                                                class="btn btn-link btn-sm">
+                                            <i class="fas fa-info-circle fa-lg" style="color:#4c4d4f;"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3>Positions</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table horiz-only">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody ng-repeat="wiw_position in ic.positionList">
+                                <tr class="position-tr"
+                                    ng-style="{'background-color': ic.hexToRgba(wiw_position.color)}">
+                                    <td class="pb-0">{{ wiw_position.id }}</td>
+                                    <td class="pb-0">{{ wiw_position.name }}</td>
+                                    <td class="text-right py-2">
+                                        <button type="button" ng-click=ic.editPosition(wiw_position.id)
+                                                class="btn btn-link btn-sm">
+                                            <i class="fas fa-edit fa-lg" style="color:#4c4d4f;"></i>
+                                        </button>
+                                        <button type="button" ng-click=ic.viewPosition(wiw_position.id)
+                                                class="btn btn-link btn-sm">
+                                            <i class="fas fa-info-circle fa-lg" style="color:#4c4d4f;"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="form-signin text-center">
+    <img class="mb-4" src="../assets/media/images/favicon/wiw.png" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <form class="text-center" ng-if="!lc.devToken" ng-submit="lc.login()">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" ng-model="lc.loginObject.username" id="inputEmail" class="form-control"
+               placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" ng-model="lc.loginObject.password" id="inputPassword" class="form-control"
+               placeholder="Password" required>
+        <label for="inputKey" class="sr-only">Developer Key</label>
+        <input type="password" ng-model="lc.loginObject.key" id="inputKey" class="form-control"
+               placeholder="Developer Key" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button type="button" class="btn btn-block btn-outline-secondary btn-sm" ng-click="lc.devToken=true">
+            Authenticate
+            with developer token instead
+        </button>
+    </form>
+    <form class="text-center" ng-if="lc.devToken" ng-submit="lc.login()">
+        <label for="inputKey" class="sr-only">Developer Token</label>
+        <input type="password" ng-model="lc.loginToken" id="inputToken" class="form-control"
+               placeholder="Developer Token" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Authenticate</button>
+        <button type="button" class="btn btn-block btn-outline-secondary btn-sm" ng-click="lc.devToken=false">Sign in
+            with username instead
+        </button>
+    </form>
+</div>
