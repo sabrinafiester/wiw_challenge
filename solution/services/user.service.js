@@ -14,7 +14,7 @@ wiwApp.service('User', ['wiwAPI', '$cookies', '$http', '$location', function (wi
     self.userList = {};
     self.userPosList = [];
     self.userPosIds = wiwAPI.getUserPosIds();
-    self.positionList = {};
+    self.positionList = wiwAPI.getPositions();
 
     self.newPos = function (posId) {
         return self.userPosIds.indexOf(posId) < 0;
@@ -90,6 +90,7 @@ wiwApp.service('User', ['wiwAPI', '$cookies', '$http', '$location', function (wi
             var index = self.userPosIds.indexOf(pos_id);
             self.userPosIds.splice(index, 1);
         }
+        self.getUserPositions(self.userPosIds);
     };
 
     self.getAllUsers = function () {
