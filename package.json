@@ -5,7 +5,18 @@
   "main": "server.js",
   "author": "Sabrina",
   "dependencies": {
-    "body-parser": "~1.5.2",
-    "express": "~4.7.2"
+    "express": "~4.7.2",
+    "angular": "~1.6.7",
+    "angular-cookies": "^1.6.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "jasmine": "^3.1.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-requirejs": "^1.1.0",
+    "requirejs": "^2.3.5"
   }
 }
