@@ -10,7 +10,7 @@ wiwApp.controller('IndexCtrl', function (User, Position) {
     };
     self.editUser = function (user_id) {
         self.user.viewOnly = false;
-        self.user.editUser(user_id);
+        self.user.viewUser(user_id);
     };
 
     self.viewPosition = function(pos_id) {

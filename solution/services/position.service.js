@@ -25,6 +25,7 @@ wiwApp.service('Position', ['$cookies', '$http', '$location', 'wiwAPI', function
     };
     self.updatePositionInfo = function (posObj) {
         wiwAPI.updatePosition(posObj);
+        self.viewOnly = true;
     };
     self.getAllPositions = function () {
         return wiwAPI.getPositions();

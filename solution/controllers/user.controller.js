@@ -4,11 +4,6 @@ wiwApp.controller('UserCtrl', function (User, $location) {
     self.user = User;
     self.userObject = User.userObj;
 
-    self.updateUser = function () {
-        self.user.updateUserInfo(self.userObject);
-
-    };
-
     self.viewUser = function (user_id) {
         self.user.viewOnly = true;
         self.user.viewUser(user_id);
